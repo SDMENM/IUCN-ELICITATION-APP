@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#1a4a6b">
 <title>SHELF Elicitation — Danube Basin Freshwater Fish</title>
 
 <style>
-/* ===== CSS unchanged from previous fix (omitted for brevity but included in full file below) ===== */
-/* I'm including the entire CSS here in the final answer to keep it self-contained. */
 :root {
   --bg:        #ffffff;
   --bg2:       #f5f5f5;
@@ -46,15 +44,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Times New Roman', Times, serif;
-  line-height: 1.65;
-  min-height: 100vh;
-  -webkit-text-size-adjust: 100%;
-  max-width: 100vw;
-}
+body { background: var(--bg); color: var(--text); font-family: 'Times New Roman', Times, serif; line-height: 1.65; min-height: 100vh; -webkit-text-size-adjust: 100%; overflow-x: hidden; max-width: 100vw; }
 button, select, input, textarea { touch-action: manipulation; }
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
@@ -62,19 +52,12 @@ button, select, input, textarea { touch-action: manipulation; }
 
 /* HEADER */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 200;
+  position: sticky; top: 0; z-index: 200;
   background: linear-gradient(135deg, #1a4a6b 0%, #0d2f45 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 2px solid #000;
-  padding: 0 36px;
-  height: 68px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 2px solid #000; padding: 0 36px; height: 68px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  will-change: transform;
 }
 .hdr-left { display: flex; align-items: center; gap: 20px; }
 .hdr-logo { font-family:'Times New Roman',Times,serif; font-size:15px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:#fff; }
@@ -100,18 +83,7 @@ button, select, input, textarea { touch-action: manipulation; }
 label { display:block; font-family:'Times New Roman',Times,serif; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--text-mute); margin-bottom:7px; }
 input[type=text], select, textarea { width:100%; background:var(--surface); border:1px solid var(--border); color:var(--text); font-family:'Times New Roman',Times,serif; font-size:15.5px; padding:10px 13px; border-radius:var(--radius); outline:none; transition:border-color .2s,box-shadow .2s; appearance:none; -webkit-appearance:none; }
 input[type=text]:focus, select:focus, textarea:focus { border-color:var(--amber); box-shadow:0 0 0 3px var(--amber-bg); }
-
-/* Custom select arrow – only on non-iOS */
-@supports not (-webkit-touch-callout: none) {
-  select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a09890' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    padding-right: 34px;
-  }
-}
-select { cursor:pointer; }
-
+select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a09890' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; padding-right:34px; cursor:pointer; }
 textarea { resize:vertical; min-height:72px; }
 
 /* EXPERT SECTION */
@@ -138,12 +110,6 @@ textarea { resize:vertical; min-height:72px; }
 .elix-wrap:not(.js-ready) .sp-card:first-child { display:block; }
 @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
 
-/* ... all other CSS rules remain exactly as in the previous fix ... */
-/* For brevity in this answer, I'm truncating the CSS here, but in the actual file I will include the full CSS from the previous working version. */
-/* The full CSS is identical to the previous answer except for the modifications already made. */
-</style>
-<!-- Full CSS continues below, but for space I'll note it's the same as before -->
-<style>
 /* PRACTICE BANNER */
 .practice-banner { background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%); border:2px solid var(--orange); border-radius:var(--radius); padding:16px 20px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
 .practice-icon { font-size:32px; line-height:1; }
@@ -232,35 +198,9 @@ textarea { resize:vertical; min-height:72px; }
 .conf-panel .panel-title { color:#5b21b6; }
 .conf-panel .panel-body { background:linear-gradient(135deg,#faf5ff 0%,#f3e8ff 100%); }
 .conf-slider-wrap { display:flex; align-items:center; gap:16px; margin-top:4px; }
-input[type=range] {
-  -webkit-appearance: none;
-  appearance: none;
-  flex: 1;
-  height: 4px;
-  border-radius: 2px;
-  background: transparent;
-  outline: none;
-  cursor: pointer;
-}
-input[type=range]::-webkit-slider-runnable-track {
-  height: 4px;
-  background: var(--border);
-  border-radius: 2px;
-}
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--amber);
-  border: 3px solid var(--surface);
-  box-shadow: 0 1px 6px rgba(26,74,107,0.4);
-  margin-top: -8px;
-  cursor: pointer;
-  transition: box-shadow .2s;
-}
-input[type=range]::-webkit-slider-thumb:hover { box-shadow: 0 1px 12px rgba(26,74,107,0.6); }
+input[type=range] { -webkit-appearance:none; flex:1; height:4px; border-radius:2px; background:var(--border); outline:none; cursor:pointer; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--amber); border:3px solid var(--surface); box-shadow:0 1px 6px rgba(26,74,107,.4); cursor:pointer; transition:box-shadow .2s; }
+input[type=range]::-webkit-slider-thumb:hover { box-shadow:0 1px 12px rgba(26,74,107,.6); }
 .conf-val { font-family:'Times New Roman',Times,serif; font-size:20px; font-weight:500; color:#7c3aed; min-width:50px; text-align:right; }
 .conf-labels { display:flex; justify-content:space-between; font-family:'Times New Roman',Times,serif; font-size:14px; color:var(--text-mute); margin-top:7px; padding:0 10px; }
 .conf-labels span:nth-child(1) { text-align:left; width:33.33%; }
@@ -357,6 +297,46 @@ input[type=range]::-webkit-slider-thumb:hover { box-shadow: 0 1px 12px rgba(26,7
 .sp-info-text em { font-style: italic; }
 .sp-info-divider { border: none; border-top: 1px dashed #fcd34d; margin: 12px 0; }
 
+/* FUTURE TREND WIDGET */
+.trend-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 14px; overflow: hidden; box-shadow: var(--shadow); }
+.trend-panel .panel-head { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-left-color: #059669; }
+.trend-panel .panel-title { color: #065f46; }
+.trend-panel-body { padding: 20px; background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); font-style: normal; }
+.trend-intro { font-size: 13px; color: var(--text-dim); margin: 0 0 20px 0; font-style: normal; line-height: 1.6; }
+.trend-step-label { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--text-mute); font-family: 'Times New Roman', Times, serif; font-weight: 700; margin-bottom: 8px; display: block; font-style: normal; }
+.trend-median-row { display: flex; align-items: center; gap: 0; margin-bottom: 24px; }
+.trend-arrow-btn {
+  width: 52px; height: 60px; font-size: 18px;
+  background: var(--surface); border: 1px solid var(--border);
+  cursor: pointer; color: var(--text-dim); transition: background .15s;
+  flex-shrink: 0; font-family: 'Times New Roman', Times, serif;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  user-select: none; -webkit-user-select: none;
+}
+.trend-arrow-btn:hover { background: var(--bg2); }
+.trend-arrow-btn:active { background: var(--border); }
+.trend-arrow-btn.left { border-radius: 5px 0 0 5px; }
+.trend-arrow-btn.right { border-radius: 0 5px 5px 0; }
+.trend-median-display {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  flex: 1; height: 60px; background: var(--surface);
+}
+.trend-med-val { font-size: 24px; font-weight: 500; color: var(--text); line-height: 1; font-family: 'Times New Roman', Times, serif; }
+.trend-med-lbl { font-size: 11px; color: var(--text-mute); margin-top: 3px; font-family: 'Times New Roman', Times, serif; }
+.trend-slider-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.trend-slider-tag { font-size: 12px; font-weight: 700; width: 32px; flex-shrink: 0; font-family: 'Times New Roman', Times, serif; }
+.trend-slider-val { font-size: 13px; font-weight: 500; width: 52px; text-align: right; flex-shrink: 0; font-family: 'Times New Roman', Times, serif; }
+.trend-slider-row input[type=range] { flex: 1; height: 6px; cursor: pointer; touch-action: manipulation; }
+.trend-tick-row { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-mute); margin-top: 4px; font-family: 'Times New Roman', Times, serif; }
+@media (max-width:700px) {
+  .trend-arrow-btn { width: 48px; height: 64px; font-size: 20px; }
+  .trend-med-val { font-size: 22px; }
+  .trend-slider-row input[type=range]::-webkit-slider-thumb { width: 28px; height: 28px; }
+  .trend-slider-val { font-size: 13px; }
+  .trend-tick-row { font-size: 9px; }
+}
+
 /* TOAST */
 .toast { position:fixed; bottom:28px; right:28px; background:var(--surface); border:1px solid var(--border2); border-radius:8px; padding:14px 20px; font-family:'Times New Roman',Times,serif; font-size:12px; color:var(--text); box-shadow:0 4px 20px rgba(0,0,0,.1); transform:translateY(80px); opacity:0; transition:all .35s cubic-bezier(0.34,1.2,0.64,1); z-index:500; max-width:340px; }
 .toast.show { transform:translateY(0); opacity:1; }
@@ -395,7 +375,7 @@ input[type=range]::-webkit-slider-thumb:hover { box-shadow: 0 1px 12px rgba(26,7
   .dist-lbl { font-size:11px; }
   .conf-slider-wrap { gap:10px; }
   input[type=range] { height:6px; }
-  input[type=range]::-webkit-slider-thumb { width:26px; height:26px; margin-top: -10px; }
+  input[type=range]::-webkit-slider-thumb { width:26px; height:26px; }
   .conf-val { font-size:18px; }
   .conf-labels { font-size:12px; }
   .qual-grid { grid-template-columns:1fr; }
@@ -416,6 +396,13 @@ input[type=range]::-webkit-slider-thumb:hover { box-shadow: 0 1px 12px rgba(26,7
   select, input[type=text], textarea { font-size:16px !important; padding:12px 13px; }
   textarea { min-height:80px; }
   section, div, header { max-width:100%; }
+  /* Trend widget mobile */
+  .trend-panel-body { padding:16px; }
+  .trend-arrow-btn { width:52px; height:64px; font-size:22px; }
+  .trend-slider-row { gap:8px; margin-bottom:16px; }
+  .trend-slider-tag { width:28px; font-size:12px; }
+  .trend-slider-val { width:46px; font-size:13px; }
+  .trend-tick-row { font-size:9px; }
 }
 @media (max-width:380px) {
   .steps-grid { grid-template-columns:1fr; }
@@ -528,413 +515,995 @@ input[type=range]::-webkit-slider-thumb:hover { box-shadow: 0 1px 12px rgba(26,7
 </div>
 
 <script>
-(function() {
-  // Use a self-executing function to avoid global pollution but keep functions accessible via window.
+var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbzLwoY-tL5f7_mzHMqz0FCdzGfJXZ3kKNT5FOmJwEmVyGlX93cdGvPV8sTk0kIzdkiQSg/exec";
 
-  var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbzLwoY-tL5f7_mzHMqz0FCdzGfJXZ3kKNT5FOmJwEmVyGlX93cdGvPV8sTk0kIzdkiQSg/exec";
-
-  var PRACTICE_SPECIES = {
-    id:0, binomial:"Salmo trutta (PRACTICE)", common:"Brown Trout - Calibration Species",
-    family:"Salmonidae", system:"Freshwater/Anadromous", range:"Europe (widespread)", isPractice:true
+// ── iOS compatibility polyfills ──────────────────────────────
+// .closest() polyfill for older iOS Safari
+if (typeof Element !== 'undefined' && !Element.prototype.closest) {
+  Element.prototype.closest = function(sel) {
+    var el = this;
+    while (el && el.nodeType === 1) {
+      if (el.matches ? el.matches(sel) : el.msMatchesSelector(sel)) return el;
+      el = el.parentElement || el.parentNode;
+    }
+    return null;
   };
+}
+// String.padStart polyfill
+if (!String.prototype.padStart) {
+  String.prototype.padStart = function(len, fill) {
+    var s = String(this);
+    fill = fill || ' ';
+    while (s.length < len) s = fill + s;
+    return s;
+  };
+}
+// Object.values polyfill
+function objValues(obj) {
+  return Object.keys(obj).map(function(k){ return obj[k]; });
+}
 
-  var REAL_SPECIES = [
-    { id:1,  binomial:"Huso huso",                 common:"Beluga Sturgeon",               family:"Acipenseridae", system:"Anadromous",  range:"Black Sea / Danube" },
-    { id:2,  binomial:"Acipenser gueldenstaedtii", common:"Russian Sturgeon",              family:"Acipenseridae", system:"Anadromous",  range:"Black Sea / Danube" },
-    { id:3,  binomial:"Acipenser stellatus",       common:"Stellate Sturgeon",             family:"Acipenseridae", system:"Anadromous",  range:"Black Sea / Danube" },
-    { id:4,  binomial:"Alosa immaculata",          common:"Pontic Shad",                   family:"Clupeidae",     system:"Anadromous",  range:"Black Sea / Danube" },
-    { id:5,  binomial:"Alosa tanaica",             common:"Azov Shad",                     family:"Clupeidae",     system:"Anadromous",  range:"Azov Sea / Danube" },
-    { id:6,  binomial:"Acipenser nudiventris",     common:"Ship Sturgeon",                 family:"Acipenseridae", system:"Anadromous",  range:"Black Sea / Danube" },
-    { id:7,  binomial:"Acipenser ruthenus",        common:"Sterlet",                       family:"Acipenseridae", system:"Freshwater",  range:"Danube & Pontic basins" },
-    { id:8,  binomial:"Pelecus cultratus",         common:"Ziege (Sichel)",                family:"Leuciscidae",   system:"Freshwater",  range:"Danube / Pontic basins" },
-    { id:9,  binomial:"Vimba vimba",               common:"Vimba Bream",                   family:"Leuciscidae",   system:"Freshwater",  range:"C. & E. Europe" },
-    { id:10, binomial:"Chondrostoma nasus",        common:"Nase",                          family:"Leuciscidae",   system:"Freshwater",  range:"C. Europe / Danube" },
-    { id:11, binomial:"Barbus barbus",             common:"Barbel",                        family:"Cyprinidae",    system:"Freshwater",  range:"W. & C. Europe" },
-    { id:12, binomial:"Rutilus virgo",             common:"Danube Roach (Frauennerfling)", family:"Leuciscidae",   system:"Freshwater",  range:"Danube Basin" },
-    { id:13, binomial:"Leuciscus aspus",           common:"Asp",                           family:"Leuciscidae",   system:"Freshwater",  range:"C. & E. Europe" },
-    { id:14, binomial:"Leuciscus idus",            common:"Ide (Orfe)",                    family:"Leuciscidae",   system:"Freshwater",  range:"Europe / W. Siberia" },
-    { id:15, binomial:"Cyprinus carpio carpio",    common:"Wild Common Carp",              family:"Cyprinidae",    system:"Freshwater",  range:"Danube / C. Europe" },
-    { id:16, binomial:"Ballerus balerus",          common:"Zope (Blue Bream)",             family:"Leuciscidae",   system:"Freshwater",  range:"C. & E. Europe" },
-    { id:17, binomial:"Hucho hucho",               common:"Huchen (Danube Salmon)",        family:"Salmonidae",    system:"Freshwater",  range:"Danube Basin" },
-    { id:18, binomial:"Thymallus thymallus",       common:"European Grayling",             family:"Salmonidae",    system:"Freshwater",  range:"C. & N. Europe" },
-    { id:19, binomial:"Zingel zingel",             common:"Zingel",                        family:"Percidae",      system:"Freshwater",  range:"Danube Basin" },
-    { id:20, binomial:"Zingel streber",            common:"Streber",                       family:"Percidae",      system:"Freshwater",  range:"Danube Basin" },
-    { id:21, binomial:"Gymnocephalus schraetzer",  common:"Schraetzer",                    family:"Percidae",      system:"Freshwater",  range:"Danube Basin" }
+var PRACTICE_SPECIES = {
+  id:0, binomial:"Salmo trutta (PRACTICE)", common:"Brown Trout - Calibration Species",
+  family:"Salmonidae", system:"Freshwater/Anadromous", range:"Europe (widespread)", isPractice:true
+};
+
+var REAL_SPECIES = [
+  { id:1,  binomial:"Huso huso",                 common:"Beluga Sturgeon",               family:"Acipenseridae", system:"Anadromous",  range:"Black Sea / Danube" },
+  { id:2,  binomial:"Acipenser gueldenstaedtii", common:"Russian Sturgeon",              family:"Acipenseridae", system:"Anadromous",  range:"Black Sea / Danube" },
+  { id:3,  binomial:"Acipenser stellatus",       common:"Stellate Sturgeon",             family:"Acipenseridae", system:"Anadromous",  range:"Black Sea / Danube" },
+  { id:4,  binomial:"Alosa immaculata",          common:"Pontic Shad",                   family:"Clupeidae",     system:"Anadromous",  range:"Black Sea / Danube" },
+  { id:5,  binomial:"Alosa tanaica",             common:"Azov Shad",                     family:"Clupeidae",     system:"Anadromous",  range:"Azov Sea / Danube" },
+  { id:6,  binomial:"Acipenser nudiventris",     common:"Ship Sturgeon",                 family:"Acipenseridae", system:"Anadromous",  range:"Black Sea / Danube" },
+  { id:7,  binomial:"Acipenser ruthenus",        common:"Sterlet",                       family:"Acipenseridae", system:"Freshwater",  range:"Danube & Pontic basins" },
+  { id:8,  binomial:"Pelecus cultratus",         common:"Ziege (Sichel)",                family:"Leuciscidae",   system:"Freshwater",  range:"Danube / Pontic basins" },
+  { id:9,  binomial:"Vimba vimba",               common:"Vimba Bream",                   family:"Leuciscidae",   system:"Freshwater",  range:"C. & E. Europe" },
+  { id:10, binomial:"Chondrostoma nasus",        common:"Nase",                          family:"Leuciscidae",   system:"Freshwater",  range:"C. Europe / Danube" },
+  { id:11, binomial:"Barbus barbus",             common:"Barbel",                        family:"Cyprinidae",    system:"Freshwater",  range:"W. & C. Europe" },
+  { id:12, binomial:"Rutilus virgo",             common:"Danube Roach (Frauennerfling)", family:"Leuciscidae",   system:"Freshwater",  range:"Danube Basin" },
+  { id:13, binomial:"Leuciscus aspus",           common:"Asp",                           family:"Leuciscidae",   system:"Freshwater",  range:"C. & E. Europe" },
+  { id:14, binomial:"Leuciscus idus",            common:"Ide (Orfe)",                    family:"Leuciscidae",   system:"Freshwater",  range:"Europe / W. Siberia" },
+  { id:15, binomial:"Cyprinus carpio carpio",    common:"Wild Common Carp",              family:"Cyprinidae",    system:"Freshwater",  range:"Danube / C. Europe" },
+  { id:16, binomial:"Ballerus balerus",          common:"Zope (Blue Bream)",             family:"Leuciscidae",   system:"Freshwater",  range:"C. & E. Europe" },
+  { id:17, binomial:"Hucho hucho",               common:"Huchen (Danube Salmon)",        family:"Salmonidae",    system:"Freshwater",  range:"Danube Basin" },
+  { id:18, binomial:"Thymallus thymallus",       common:"European Grayling",             family:"Salmonidae",    system:"Freshwater",  range:"C. & N. Europe" },
+  { id:19, binomial:"Zingel zingel",             common:"Zingel",                        family:"Percidae",      system:"Freshwater",  range:"Danube Basin" },
+  { id:20, binomial:"Zingel streber",            common:"Streber",                       family:"Percidae",      system:"Freshwater",  range:"Danube Basin" },
+  { id:21, binomial:"Gymnocephalus schraetzer",  common:"Schraetzer",                    family:"Percidae",      system:"Freshwater",  range:"Danube Basin" }
+];
+
+var ALL_SPECIES = [PRACTICE_SPECIES].concat(REAL_SPECIES);
+
+var CATS = [
+  { id:"lc", label:"LC", name:"Least Concern",        desc:"No significant threat; stable or increasing population." },
+  { id:"nt", label:"NT", name:"Near Threatened",       desc:"Close to qualifying as threatened; declining trend." },
+  { id:"vu", label:"VU", name:"Vulnerable",            desc:"High risk of extinction. Criteria A-E partially met." },
+  { id:"en", label:"EN", name:"Endangered",            desc:"Very high risk. Major documented population loss." },
+  { id:"cr", label:"CR", name:"Critically Endangered", desc:"Extremely high risk. Facing imminent extinction." },
+  { id:"ex", label:"EX", name:"Extinct",               desc:"No reasonable doubt that the last individual has died." }
+];
+
+var TOTAL = 20;
+var state = {};
+var currentSp = 0;
+
+ALL_SPECIES.forEach(function(sp) {
+  state[sp.id] = { chips:{lc:0,nt:0,vu:0,en:0,cr:0,ex:0}, confidence:50, criterion:"", completed:false };
+});
+
+// ── SVG constants ────────────────────────────────────────────
+var CHK_LG = '<svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var CHK_SM = '<svg width="8" height="6" viewBox="0 0 8 6"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+function mkSub(lbl) {
+  return '<div class="cw-sub"><div class="cw-subbox">' + CHK_SM + '</div><span class="cw-sublabel">' + lbl + '</span></div>';
+}
+
+function mkCritRow(c, name, desc, subsHTML) {
+  return '<div class="crit-row" data-c="' + c + '">' +
+    '<div class="cw-box">' + CHK_LG + '</div>' +
+    '<div class="cw-body">' +
+      '<div class="cw-head"><span class="cw-tag">' + c + '</span><span class="cw-name">' + name + '</span></div>' +
+      '<div class="cw-desc">' + desc + '</div>' +
+      (subsHTML ? '<div class="cw-subs">' + subsHTML + '</div>' : '') +
+    '</div></div>';
+}
+
+function buildCritWidget(spId) {
+  return '<div class="crit-widget" id="critw-' + spId + '">' +
+    mkCritRow('A','Population size reduction',
+      'Observed, estimated or projected decline over 10 years or 3 generations regardless of current population size.',
+      mkSub('A1 - causes ceased') + mkSub('A2 - causes ongoing') + mkSub('A3 - future decline') + mkSub('A4 - combined window')) +
+    mkCritRow('B','Geographic range restriction',
+      'Small extent of occurrence (EOO) or area of occupancy (AOO) plus at least two of: severe fragmentation / few locations, continuing decline, or extreme fluctuations.',
+      mkSub('B1 - EOO') + mkSub('B2 - AOO')) +
+    mkCritRow('C','Small population and continuing decline',
+      'Population below threshold (less than 10,000 VU / less than 2,500 EN mature individuals) and an ongoing quantified decline or fragmentation condition.',
+      '') +
+    mkCritRow('D','Very small or restricted population',
+      'Population tiny (less than 250 EN / less than 1,000 VU) or area of occupancy very restricted (D2: less than 20 km2, 5 or fewer locations) - no decline required.',
+      '') +
+    mkCritRow('none','No specific criterion / insufficient information',
+      'Assessment based on general knowledge; no single criterion clearly dominant or data insufficient to specify.',
+      '') +
+    '<div class="cw-footer" id="critw-foot-' + spId + '">' +
+      '<span class="cw-footer-lbl">Selected:</span>' +
+      '<span class="cw-empty">none selected</span>' +
+    '</div>' +
+  '</div>';
+}
+
+// ── Species info data (Population status & Habitat Requirements) ─
+var SPECIES_INFO = {
+  "Huso huso": {
+    pop: "The conservation status of the Beluga (Huso huso) was reported as 'unfavourable-bad' in all region with deteriorating trend under the EU Habitats Directive, though the species is listed as Critically Endangered with a decreasing population trend on the IUCN Red List. Generation length is 61 years. No data is available for the geographic extent (area of occupancy), and no extreme fluctuations in the population have been recorded.",
+    hab: "Juveniles drift with the current from spawning grounds toward the sea in pelagic open water and river channels, dispersing downstream and migrating to sea in their first summer. Adults spawn in April-June on stone or gravel bottom in deep fast-flowing main channels (current 0.8-1.2 m/s) of large rivers such as the Volga, Ural and Danube. They undertake long-distance upstream anadromous migrations, spawning every 3-4 years."
+  },
+  "Acipenser gueldenstaedtii": {
+    pop: "Under the EU Habitats Directive, the conservation status across all biogeographical regions where the species is present (Black Sea, Continental, Steppic and Marine Black Sea) was evaluated as unfavourable-bad. Generation length is 35 years. No data is available for the estimated area of occupancy, and no extreme fluctuations in the population have been recorded.",
+    hab: "Juveniles drift with the current after hatching through river channels and shallow coastal and estuarine zones, dispersing downstream to the sea during their first summer and remaining there until maturity. Adults spawn in April-June on stone or gravel bottom in strong currents (1-1.5 m/s) in large deep rivers. They undertake long-distance anadromous upstream migrations, with females spawning every 4-6 years and males every 2-3 years."
+  },
+  "Acipenser stellatus": {
+    pop: "Under the EU Habitats Directive, the species is reported across five biogeographical regions (Black Sea, Continental, Mediterranean, Steppic and Marine Black Sea), with conservation status assessed as unfavourable-bad in all regions. Generation length is 28 years. No data is available for the estimated area of occupancy or extreme fluctuations in the population.",
+    hab: "Juveniles inhabit shallow riverine areas during their first summer before moving to coastal and estuarine zones, migrating downstream to the sea and remaining there until maturity. Adults spawn between April and September in both spring and autumn runs, on stone or gravel bottom in strong currents in the main river channel, and also on flooded banks on sand or sandy clay, at temperatures of 9-16 degrees C."
+  },
+  "Alosa immaculata": {
+    pop: "Under the EU Habitats Directive, the species is assessed as Poor in the Black Sea, Continental and Steppic regions, with no data available for the Marine Black Sea region. Generation length is 3 years and the estimated area of occupancy is 4,000 km2. No extreme fluctuations in the population have been recorded.",
+    hab: "Juveniles drift downriver after hatching, settling in floodplains before reaching deltas and estuaries in their first summer, then migrating to sea in autumn and remaining there until sexual maturity at 2-3 years. Adults spawn between May and August in fast-flowing stretches of large river channels at 2-3 m depth, in lower-to-middle reaches. They are anadromous, returning to the Black Sea post-spawning and spawning up to 4 times in a lifetime."
+  },
+  "Alosa tanaica": {
+    pop: "Under the EU Habitats Directive, the species is assessed as Poor in the Black Sea, Continental and Steppic regions, with no data available for the Marine Black Sea region. No data is available for generation length or estimated area of occupancy.",
+    hab: "Juveniles mature at sea or in estuaries during their first summer, requiring access to coastal and estuarine nursery areas. Adults migrate from the Black and Azov Seas into the lower reaches of large rivers in late January-March. Spawning occurs in May-June in still water bodies such as lakes or floodplains close to shore."
+  },
+  "Acipenser nudiventris": {
+    pop: "Under the EU Habitats Directive, the species is assessed as Poor in the Black Sea, Continental and Steppic regions, with no data available for the Marine Black Sea region. No data is available for generation length or estimated area of occupancy.",
+    hab: "Juveniles mature at sea or in estuaries during their first summer, requiring access to coastal and estuarine nursery areas. Adults migrate from the Black and Azov Seas into the lower reaches of large rivers, entering river mouths when temperatures reach approximately 10 degrees C. Spawning occurs above approximately 15 degrees C close to shore in still water bodies such as lakes or floodplains."
+  },
+  "Acipenser ruthenus": {
+    pop: "The Sterlet (Acipenser ruthenus) remains the most widespread sturgeon in Europe, occurring across rivers draining to the Black, Azov and Caspian Seas and in Siberian river systems. The species has an unfavourable-bad conservation status across all four biogeographical regions in which it occurs (Alpine, Continental, Pannonian and Steppic). Generation length is 17-26 years with no information on its estimated area of occupancy.",
+    hab: "Juveniles inhabit shallower riverine areas, moving to flooded areas to feed during periods of high water. Adults are potamodromous, residing in deep, fast-flowing stretches of large rivers and undertaking relatively short spawning migrations (up to 322 km recorded in the Danube). Spawning occurs in April-June when water temperatures exceed 10 degrees C, over gravel substrates in strong-current habitats."
+  },
+  "Pelecus cultratus": {
+    pop: "The Sichel (Pelecus cultratus) population is reported by 11 member states across five biogeographical regions; conservation status is unfavourable-inadequate in the Black Sea, Pannonic and Steppic regions and unfavourable-bad in the Continental region, with only the Boreal region showing a favourable status. Generation length is 10 years, with no information on its estimated area of occupancy.",
+    hab: "Juveniles hatch from semi-pelagic eggs that drift with the current, and may migrate to estuarine areas during their first summer. Adults are semi-anadromous in some populations, foraging in brackish coastal or estuarine waters and entering rivers to spawn; resident populations remain in large rivers or lakes year-round. Spawning occurs in May-June at water temperatures above 12 degrees C, in pelagic open water in both river main channels and lakes."
+  },
+  "Vimba vimba": {
+    pop: "The vimba bream (Vimba vimba) population shows a decreasing trend and continuing decline in both area of occupancy and number of mature individuals, though the decline is not considered significant enough to trigger a threatened category. Generation length is 15 years, with no information on its estimated area of occupancy.",
+    hab: "Juveniles settle in riverine habitats after hatching and, in semi-anadromous populations, may move to brackish estuarine and coastal foraging areas during early life stages. Adults are semi-anadromous in some populations, foraging in freshened coastal or estuarine waters and undertaking long-distance spawning migrations to rivers. Spawning occurs in May-July at temperatures above 15 degrees C, over gravel substrates in shallow, fast-flowing riffles."
+  },
+  "Chondrostoma nasus": {
+    pop: "The common nase (Chondrostoma nasus) is widely distributed across major European river systems. Although the total population far exceeds 10,000 mature individuals, abundance has declined significantly throughout much of its range since the early 20th century, with only small remnant subpopulations remaining at many formerly productive sites. Generation length is 7 years, with no information on estimated area of occupancy.",
+    hab: "Juveniles progressively move into faster-flowing reaches and shift their diet towards zooplankton and invertebrates. The quality and permeability of interstitial spawning substrate is considered critical for the survival of early life stages. Adults inhabit deep, fast-flowing reaches of lower to middle river courses with coarse substrata. Spawning occurs between March and May at water temperatures above 10 degrees C, over well-washed gravel banks in shallow, fast-flowing water."
+  },
+  "Barbus barbus": {
+    pop: "The common barbel (Barbus barbus) population declined sharply due to large reservoir construction and pollution during the 20th century but may have since stabilised at a moderate level. Conservation status is unfavourable-inadequate across the majority of biogeographical regions, with a deteriorating trend in the Boreal and Steppic regions, and only the Atlantic region showing a favourable status. No information is available on generation length and estimated area of occupancy.",
+    hab: "Larvae drift a short distance from spawning sites to settle in very shallow shoreline habitats, where they remain as benthic juveniles before gradually moving into faster-flowing waters as they grow. Adults are potamodromous, inhabiting premontane to lowland reaches of clear, well-oxygenated, medium to large rivers with fast current and gravel bottom. Spawning occurs in May-July at water temperatures above 15 degrees C."
+  },
+  "Rutilus virgo": {
+    pop: "The cactus roach (Rutilus virgo) is endemic to the Danube River system. Conservation status is Unfavourable-Bad in both the Alpine and Continental biogeographical regions, primarily due to the deteriorated situation in Austria, while the Pannonian region is assessed as Unfavourable-Inadequate. Generation length is 5 years, and the estimated extent of occurrence is approximately 565,758 km2.",
+    hab: "Eggs hatch after an average of 14 days and early-stage larvae are associated with the interstitial zone of spawning substrates. As juveniles grow they move into deeper, flowing reaches of larger river channels. Adults are potamodromous, inhabiting deep, flowing stretches of larger rivers, undertaking upstream spawning migrations in March-May when water temperatures reach 10-14 degrees C. Spawning takes place over beds of submerged vegetation or well-washed gravel in shallow riffles."
+  },
+  "Leuciscus aspus": {
+    pop: "The Eurasian asp (Leuciscus aspius) is extremely abundant and widespread, occurring across rivers draining to the Northeast Atlantic, Baltic, Black, Azov, Caspian, Aral and Aegean sea basins. No significant population decline has been reported and no continuing decline in area of occupancy. Some subpopulations are locally threatened by river engineering projects.",
+    hab: "Juveniles are gregarious and grow rapidly, initially occupying riverine and lacustrine habitats before developing into active predators in larger water bodies. In some semi-anadromous subpopulations, juveniles and sub-adults forage in estuaries and freshened parts of brackish seas before maturing. Spawning occurs from March to early April at water temperatures above 4-8 degrees C, over gravel substrates or submerged vegetation in fast-flowing water."
+  },
+  "Leuciscus idus": {
+    pop: "The Ide (Leuciscus idus) population has declined significantly since the mid-20th century across parts of its range, primarily due to habitat degradation, river regulation and pollution. Western European subpopulations appear to have stabilised at comparatively low levels, while recent signs of recovery have been reported in coastal parts of the Baltic region. Generation length is 8 years, and estimated extent of occurrence is 24,158,447 km2.",
+    hab: "Juveniles occur in shallow littoral habitats where fry and young-of-the-year form large aggregations, with early-stage larvae commonly drifting downstream into freshwater tidal estuaries. Adults inhabit lowland rivers, floodplains, nutrient-rich lakes and brackish coastal zones, preferring slow-moving to still waters. Spawning occurs between February and June depending on location, on gravel, stones, algae or vegetation."
+  },
+  "Cyprinus carpio carpio": {
+    pop: "The population status of Eurasian Carp (Cyprinus carpio) is poorly understood due to the difficulty of distinguishing genetically pure wild fish from extensively stocked domestic strains. Large subpopulations apparently remain in the Caspian Sea, where introductions of domestic strains have been limited. Genetic introgression from domesticated Common Carp strains is considered the primary threat and appears to be widespread throughout the native range. Generation length is 5.5 years.",
+    hab: "Juveniles hatch among dense aquatic vegetation in warm, shallow, marginal habitats, where they initially adhere to substrate until their yolk sacs are absorbed. Access to productive shallow marginal and floodplain habitats connected to adult foraging areas is therefore important for early survival. Adults naturally inhabit lentic and sluggish lotic environments with relatively deep water and beds of aquatic vegetation. Spawning occurs in late spring when water temperatures reach 17-18 degrees C, in shallow shorelines, backwaters and floodplains."
+  },
+  "Ballerus balerus": {
+    pop: "The Blue Bream (Ballerus ballerus) is native to large rivers draining to the Baltic, North, Black, Azov and Caspian seas. It is generally considered scarce throughout its range but can be locally abundant, and there is no indication of significant decline. No major threats have been identified. It is assessed as Least Concern on the IUCN Red List, with an unknown population trend.",
+    hab: "Juveniles inhabit backwaters and flooded zones along rivers, requiring lateral connectivity to these marginal habitats. Adults inhabit large lowland rivers and eutrophic lakes with intact backwaters, feeding predominantly on zooplankton in open water. Spawning occurs in spring when water temperatures reach around 10 degrees C, on submerged vegetation along riverbanks or in backwaters, and also on gravel in moderate currents."
+  },
+  "Thymallus thymallus": {
+    pop: "The European Grayling (Thymallus thymallus) is native to Europe. Overall abundance has contracted significantly since the 19th century, particularly in the United Kingdom and Central and Western Europe, driven primarily by river regulation, habitat degradation and pollution. At the national scale it is assessed as Endangered in Switzerland, Vulnerable in France, Croatia, Romania and Ukraine. Estimated extent of occurrence is 8,525,854 km2, with approximately 5 years generation length.",
+    hab: "Juveniles emerge from gravel substrate and forage initially in low-flow marginal zones with cover, later moving into the water column near stream banks before settling into benthic habitats; connected access between spawning and nursery areas is essential. Adults inhabit fast-flowing, well-oxygenated middle river reaches, undertaking seasonal movements between shallow summer habitats and deeper winter refuges. Spawning occurs from late March to June at 3-11 degrees C on well-washed fine gravel in flowing shallows."
+  },
+  "Zingel zingel": {
+    pop: "The Zingel (Zingel zingel) is native to the Danube and Dniester river systems in Central and Southeastern Europe. Abundance has declined significantly since the mid-19th century and the species is today considered rare in most countries within its range. Conservation status is unfavourable-bad in the Alpine region and unfavourable-inadequate elsewhere, with all status trends negative. Estimated extent of occupancy is 1,088,358 km2.",
+    hab: "No information is available on juvenile habitat use. Adults are strictly benthic, inhabiting middle-to-lower stretches of large rivers with fast-flowing waters, preferring glide habitats with fine substrata and spawning on sand substrate. Spawning is believed to occur between March and May. The species is highly sensitive to barriers and cannot pass even very low obstructions, making local connectivity within river reaches a critical requirement."
+  },
+  "Zingel streber": {
+    pop: "The Danube Streber (Zingel streber) is native to the Danube and Dniester river systems in Central and Southeastern Europe. Abundance has declined significantly since the mid-19th century and the species is today considered rare in most countries within its range. Conservation status is unfavourable-bad in the Alpine region and unfavourable-inadequate elsewhere, with negative trends in all regions. Estimated extent of occurrence is 1,088,358 km2.",
+    hab: "No specific information on juvenile habitat use is provided. Adults are strictly benthic and rheophilic, inhabiting clean, cool, well-oxygenated stretches of small to large rivers with strong currents and coarse gravel, cobble and boulder substrata. Spawning occurs between March and May. The species is not considered migratory but is highly sensitive to barriers."
+  },
+  "Gymnocephalus schraetzer": {
+    pop: "The Striped Ruffe (Gymnocephalus schraetzer) is endemic to the Danube River drainage. The species is locally abundant with no reports of significant population decline, though conservation status is unfavourable-bad in the Alpine region and unfavourable-inadequate elsewhere, with a deteriorating trend in most regions. Generation length is 5.5 years, with estimated extent of occurrence of 699,767 km2.",
+    hab: "No specific information on juvenile habitat use is provided beyond the note that larvae are benthic. Adults inhabit open sand and mud bottoms of large to medium-sized rivers with moderate current, and are gregarious and nocturnal. Spawning occurs from April to June, with females attaching eggs to stones, typically first spawning at age 2-3 years. The species is not considered migratory."
+  },
+  "Hucho hucho": {
+    pop: "Danube Salmon (Hucho hucho) is listed as Bad in the Alpine and Continental regions and Poor in the Pannonian region under the EU Habitats Directive. Generation length is 8 years. The estimated area of occupancy is 5,706 km2, with no extreme fluctuations recorded in the population.",
+    hab: "Juveniles occupy shallow areas near spawning sites, later moving to riffles and runs, using gravel redds, shallow margins and riffles/runs with cover. They disperse downstream with no fixed territories and require access from spawning sites to nursery areas. Adults spawn between February and May on well-washed gravel in shallow to moderate flow, occupying deep pools and glides in upland rivers. They undertake seasonal upstream migrations of 1-25 km and require free passage to upstream spawning sites."
+  }
+};
+
+function italiciseSciNames(text) {
+  // Only italicise known scientific binomials — explicit list, no guessing
+  var binomials = [
+    'Huso huso',
+    'Acipenser gueldenstaedtii',
+    'Acipenser stellatus',
+    'Acipenser nudiventris',
+    'Acipenser ruthenus',
+    'Alosa immaculata',
+    'Alosa tanaica',
+    'Pelecus cultratus',
+    'Vimba vimba',
+    'Chondrostoma nasus',
+    'Barbus barbus',
+    'Rutilus virgo',
+    'Leuciscus aspius',
+    'Leuciscus idus',
+    'Cyprinus carpio',
+    'Ballerus ballerus',
+    'Ballerus balerus',
+    'Hucho hucho',
+    'Thymallus thymallus',
+    'Zingel zingel',
+    'Zingel streber',
+    'Gymnocephalus schraetzer',
+    'Gymnocephalus schraetser',
+    'Salmo trutta'
   ];
-
-  var ALL_SPECIES = [PRACTICE_SPECIES].concat(REAL_SPECIES);
-
-  var CATS = [
-    { id:"lc", label:"LC", name:"Least Concern",        desc:"No significant threat; stable or increasing population." },
-    { id:"nt", label:"NT", name:"Near Threatened",       desc:"Close to qualifying as threatened; declining trend." },
-    { id:"vu", label:"VU", name:"Vulnerable",            desc:"High risk of extinction. Criteria A-E partially met." },
-    { id:"en", label:"EN", name:"Endangered",            desc:"Very high risk. Major documented population loss." },
-    { id:"cr", label:"CR", name:"Critically Endangered", desc:"Extremely high risk. Facing imminent extinction." },
-    { id:"ex", label:"EX", name:"Extinct",               desc:"No reasonable doubt that the last individual has died." }
-  ];
-
-  var TOTAL = 20;
-  var state = {};
-  var currentSp = 0;
-
-  ALL_SPECIES.forEach(function(sp) {
-    state[sp.id] = { chips:{lc:0,nt:0,vu:0,en:0,cr:0,ex:0}, confidence:50, criterion:"", completed:false };
+  binomials.forEach(function(name) {
+    // Escape special regex chars and replace each occurrence with italicised version
+    var escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    var re = new RegExp(escaped, 'g');
+    text = text.replace(re, '<em>' + name + '</em>');
   });
+  return text;
+}
 
-  var CHK_LG = '<svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  var CHK_SM = '<svg width="8" height="6" viewBox="0 0 8 6"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-
-  function mkSub(lbl) {
-    return '<div class="cw-sub"><div class="cw-subbox">' + CHK_SM + '</div><span class="cw-sublabel">' + lbl + '</span></div>';
-  }
-
-  function mkCritRow(c, name, desc, subsHTML) {
-    return '<div class="crit-row" data-c="' + c + '">' +
-      '<div class="cw-box">' + CHK_LG + '</div>' +
-      '<div class="cw-body">' +
-        '<div class="cw-head"><span class="cw-tag">' + c + '</span><span class="cw-name">' + name + '</span></div>' +
-        '<div class="cw-desc">' + desc + '</div>' +
-        (subsHTML ? '<div class="cw-subs">' + subsHTML + '</div>' : '') +
-      '</div></div>';
-  }
-
-  function buildCritWidget(spId) {
-    return '<div class="crit-widget" id="critw-' + spId + '">' +
-      mkCritRow('A','Population size reduction',
-        'Observed, estimated or projected decline over 10 years or 3 generations regardless of current population size.',
-        mkSub('A1 - causes ceased') + mkSub('A2 - causes ongoing') + mkSub('A3 - future decline') + mkSub('A4 - combined window')) +
-      mkCritRow('B','Geographic range restriction',
-        'Small extent of occurrence (EOO) or area of occupancy (AOO) plus at least two of: severe fragmentation / few locations, continuing decline, or extreme fluctuations.',
-        mkSub('B1 - EOO') + mkSub('B2 - AOO')) +
-      mkCritRow('C','Small population and continuing decline',
-        'Population below threshold (less than 10,000 VU / less than 2,500 EN mature individuals) and an ongoing quantified decline or fragmentation condition.',
-        '') +
-      mkCritRow('D','Very small or restricted population',
-        'Population tiny (less than 250 EN / less than 1,000 VU) or area of occupancy very restricted (D2: less than 20 km2, 5 or fewer locations) - no decline required.',
-        '') +
-      mkCritRow('none','No specific criterion / insufficient information',
-        'Assessment based on general knowledge; no single criterion clearly dominant or data insufficient to specify.',
-        '') +
-      '<div class="cw-footer" id="critw-foot-' + spId + '">' +
-        '<span class="cw-footer-lbl">Selected:</span>' +
-        '<span class="cw-empty">none selected</span>' +
-      '</div>' +
-    '</div>';
-  }
-
-  var SPECIES_INFO = {
-    "Huso huso": {
-      pop: "The conservation status of the Beluga (Huso huso) was reported as 'unfavourable-bad' in all region with deteriorating trend under the EU Habitats Directive, though the species is listed as Critically Endangered with a decreasing population trend on the IUCN Red List. Generation length is 61 years. No data is available for the geographic extent (area of occupancy), and no extreme fluctuations in the population have been recorded.",
-      hab: "Juveniles drift with the current from spawning grounds toward the sea in pelagic open water and river channels, dispersing downstream and migrating to sea in their first summer. Adults spawn in April-June on stone or gravel bottom in deep fast-flowing main channels (current 0.8-1.2 m/s) of large rivers such as the Volga, Ural and Danube. They undertake long-distance upstream anadromous migrations, spawning every 3-4 years."
-    },
-    // ... (all other species info exactly as before, omitted for brevity)
-    "Hucho hucho": {
-      pop: "Danube Salmon (Hucho hucho) is listed as Bad in the Alpine and Continental regions and Poor in the Pannonian region under the EU Habitats Directive. Generation length is 8 years. The estimated area of occupancy is 5,706 km2, with no extreme fluctuations recorded in the population.",
-      hab: "Juveniles occupy shallow areas near spawning sites, later moving to riffles and runs, using gravel redds, shallow margins and riffles/runs with cover. They disperse downstream with no fixed territories and require access from spawning sites to nursery areas. Adults spawn between February and May on well-washed gravel in shallow to moderate flow, occupying deep pools and glides in upland rivers. They undertake seasonal upstream migrations of 1-25 km and require free passage to upstream spawning sites."
+function getSpInfoHTML(sp) {
+  var info = SPECIES_INFO[sp.binomial];
+  if (!info) {
+    var parts = sp.binomial.split(' ');
+    var genus = parts[0];
+    for (var k in SPECIES_INFO) {
+      if (k.split(' ')[0] === genus) { info = SPECIES_INFO[k]; break; }
     }
-  };
-  // Fill in missing species info (same as before, I'm skipping the long object here for space)
-  // In the final answer, I'll include the full SPECIES_INFO object.
-
-  function italiciseSciNames(text) {
-    var binomials = [
-      'Huso huso', 'Acipenser gueldenstaedtii', 'Acipenser stellatus', 'Acipenser nudiventris',
-      'Acipenser ruthenus', 'Alosa immaculata', 'Alosa tanaica', 'Pelecus cultratus',
-      'Vimba vimba', 'Chondrostoma nasus', 'Barbus barbus', 'Rutilus virgo',
-      'Leuciscus aspius', 'Leuciscus idus', 'Cyprinus carpio', 'Ballerus ballerus',
-      'Ballerus balerus', 'Hucho hucho', 'Thymallus thymallus', 'Zingel zingel',
-      'Zingel streber', 'Gymnocephalus schraetzer', 'Gymnocephalus schraetser', 'Salmo trutta'
-    ];
-    binomials.forEach(function(name) {
-      var escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      var re = new RegExp(escaped, 'g');
-      text = text.replace(re, '<em>' + name + '</em>');
-    });
-    return text;
   }
+  if (!info) return '';
+  return '<div class="sp-info-panel">' +
+    '<div class="sp-info-section">' +
+      '<div class="sp-info-heading">Population Status</div>' +
+      '<div class="sp-info-text">' + italiciseSciNames(info.pop) + '</div>' +
+    '</div>' +
+    '<hr class="sp-info-divider">' +
+    '<div class="sp-info-section">' +
+      '<div class="sp-info-heading">Habitat Requirements</div>' +
+      '<div class="sp-info-text">' + italiciseSciNames(info.hab) + '</div>' +
+    '</div>' +
+  '</div>';
+}
 
-  function getSpInfoHTML(sp) {
-    var info = SPECIES_INFO[sp.binomial];
-    if (!info) {
-      var parts = sp.binomial.split(' ');
-      var genus = parts[0];
-      for (var k in SPECIES_INFO) {
-        if (k.split(' ')[0] === genus) { info = SPECIES_INFO[k]; break; }
-      }
-    }
-    if (!info) return '';
-    return '<div class="sp-info-panel">' +
-      '<div class="sp-info-section">' +
-        '<div class="sp-info-heading">Population Status</div>' +
-        '<div class="sp-info-text">' + italiciseSciNames(info.pop) + '</div>' +
+// ── Build tabs ───────────────────────────────────────────────
+function buildTabs() {
+  var c = document.getElementById("species-tabs");
+  ALL_SPECIES.forEach(function(sp) {
+    var btn = document.createElement("button");
+    btn.className = "sp-tab";
+    btn.setAttribute("data-id", sp.id);
+    btn.id = "tab-" + sp.id;
+    btn.textContent = sp.isPractice ? "!" : String(sp.id).padStart(2,"0");
+    btn.title = sp.binomial;
+    (function(id){ btn.onclick = function(){ goTo(id); }; })(sp.id);
+    c.appendChild(btn);
+  });
+}
+
+// ── Build cards ──────────────────────────────────────────────
+function buildCards() {
+  var wrap = document.getElementById("elix-wrap");
+  wrap.innerHTML = '';
+  ALL_SPECIES.forEach(function(sp) {
+    var card = document.createElement("div");
+    card.className = "sp-card";
+    card.id = "card-" + sp.id;
+    wrap.appendChild(card);          // append FIRST so it's in the DOM
+    card.innerHTML = cardHTML(sp);   // THEN set innerHTML — more reliable on iOS
+    wireChipEvents(sp.id);
+    wireCritWidget(sp.id);
+    state[sp.id].trendP5  = -60;
+    state[sp.id].trendMed = 0;
+    state[sp.id].trendP95 = 20;
+  });
+  wrap.classList.add("js-ready");
+}
+
+function buildTabs() {
+  var c = document.getElementById("species-tabs");
+  c.innerHTML = '';
+  ALL_SPECIES.forEach(function(sp) {
+    var btn = document.createElement("button");
+    btn.className = "sp-tab";
+    btn.setAttribute("data-id", sp.id);
+    btn.id = "tab-" + sp.id;
+    btn.textContent = sp.isPractice ? "!" : String(sp.id).padStart(2,"0");
+    btn.title = sp.binomial;
+    (function(id){ btn.onclick = function(){ goTo(id); }; })(sp.id);
+    c.appendChild(btn);
+  });
+}
+
+function cardHTML(sp) {
+  var isPractice = !!sp.isPractice;
+  var isFirst = sp.id === 0;
+  var isLast  = sp.id === 21;
+
+  var practiceBanner = isPractice
+    ? '<div class="practice-banner"><span class="practice-icon">!</span><div class="practice-text"><div class="practice-title">Practice Species - Calibrate Your Scale</div><div class="practice-desc">This is a familiar, widespread species. Use it to calibrate your probability scale before assessing the Danube endemics. Your response here will not count toward the final analysis.</div></div><button class="practice-skip" onclick="skipPractice()">Skip to Real Species</button></div>'
+    : '';
+
+  var catRows = CATS.map(function(c) {
+    return '<div class="cat-row cr-' + c.id + '">' +
+      '<span class="cat-badge cb-' + c.id + '" title="' + c.name + '">' + c.label + '</span>' +
+      '<div class="cat-track" id="track-' + sp.id + '-' + c.id + '">' +
+        '<div class="cat-fill" id="fill-' + sp.id + '-' + c.id + '" style="width:0%"></div>' +
+        '<div class="chip-dots" id="dots-' + sp.id + '-' + c.id + '"></div>' +
       '</div>' +
-      '<hr class="sp-info-divider">' +
-      '<div class="sp-info-section">' +
-        '<div class="sp-info-heading">Habitat Requirements</div>' +
-        '<div class="sp-info-text">' + italiciseSciNames(info.hab) + '</div>' +
+      '<div class="cat-controls">' +
+        '<button class="cat-btn" data-sp="' + sp.id + '" data-cat="' + c.id + '" data-dir="-1">-</button>' +
+        '<span class="cat-count" id="count-' + sp.id + '-' + c.id + '">0</span>' +
+        '<button class="cat-btn" data-sp="' + sp.id + '" data-cat="' + c.id + '" data-dir="1">+</button>' +
       '</div>' +
+      '<span class="prob-val" id="prob-' + sp.id + '-' + c.id + '">0%</span>' +
     '</div>';
-  }
+  }).join('');
 
-  // Build tabs
-  function buildTabs() {
-    var c = document.getElementById("species-tabs");
-    if (!c) { console.error("species-tabs not found"); return; }
-    ALL_SPECIES.forEach(function(sp) {
-      var btn = document.createElement("button");
-      btn.className = "sp-tab";
-      btn.setAttribute("data-id", sp.id);
-      btn.id = "tab-" + sp.id;
-      btn.textContent = sp.isPractice ? "!" : String(sp.id).padStart(2,"0");
-      btn.title = sp.binomial;
-      btn.onclick = (function(id) { return function() { goTo(id); }; })(sp.id);
-      c.appendChild(btn);
-    });
-  }
+  var distCols = CATS.map(function(c) {
+    return '<div class="dist-col"><div class="dist-bar db-' + c.id + '" id="dbar-' + sp.id + '-' + c.id + '" style="height:0px"></div><span class="dist-lbl">' + c.label + '</span></div>';
+  }).join('');
 
-  function cardHTML(sp) {
-    var isPractice = !!sp.isPractice;
-    var isFirst = sp.id === 0;
-    var isLast  = sp.id === 21;
+  var distProbs = CATS.map(function(c) {
+    return '<span class="dist-prob" id="dprob-' + sp.id + '-' + c.id + '">-</span>';
+  }).join('');
 
-    var practiceBanner = isPractice
-      ? '<div class="practice-banner"><span class="practice-icon">!</span><div class="practice-text"><div class="practice-title">Practice Species - Calibrate Your Scale</div><div class="practice-desc">This is a familiar, widespread species. Use it to calibrate your probability scale before assessing the Danube endemics. Your response here will not count toward the final analysis.</div></div><button class="practice-skip" onclick="skipPractice()">Skip to Real Species</button></div>'
-      : '';
+  var prevBtn = !isFirst
+    ? '<button class="btn-nav btn-prev" onclick="goTo(' + (sp.id-1) + ')">Previous</button>'
+    : '<span></span>';
+  var nextBtn = isLast
+    ? '<button class="btn-nav btn-submit" onclick="finish()">Submit all responses</button>'
+    : '<button class="btn-nav btn-next" onclick="goTo(' + (sp.id+1) + ')">Next species</button>';
 
-    var catRows = CATS.map(function(c) {
-      return '<div class="cat-row cr-' + c.id + '">' +
-        '<span class="cat-badge cb-' + c.id + '" title="' + c.name + '">' + c.label + '</span>' +
-        '<div class="cat-track" id="track-' + sp.id + '-' + c.id + '">' +
-          '<div class="cat-fill" id="fill-' + sp.id + '-' + c.id + '" style="width:0%"></div>' +
-          '<div class="chip-dots" id="dots-' + sp.id + '-' + c.id + '"></div>' +
-        '</div>' +
-        '<div class="cat-controls">' +
-          '<button class="cat-btn" data-sp="' + sp.id + '" data-cat="' + c.id + '" data-dir="-1">-</button>' +
-          '<span class="cat-count" id="count-' + sp.id + '-' + c.id + '">0</span>' +
-          '<button class="cat-btn" data-sp="' + sp.id + '" data-cat="' + c.id + '" data-dir="1">+</button>' +
-        '</div>' +
-        '<span class="prob-val" id="prob-' + sp.id + '-' + c.id + '">0%</span>' +
-      '</div>';
-    }).join('');
-
-    var distCols = CATS.map(function(c) {
-      return '<div class="dist-col"><div class="dist-bar db-' + c.id + '" id="dbar-' + sp.id + '-' + c.id + '" style="height:0px"></div><span class="dist-lbl">' + c.label + '</span></div>';
-    }).join('');
-
-    var distProbs = CATS.map(function(c) {
-      return '<span class="dist-prob" id="dprob-' + sp.id + '-' + c.id + '">-</span>';
-    }).join('');
-
-    var prevBtn = !isFirst
-      ? '<button class="btn-nav btn-prev" onclick="goTo(' + (sp.id-1) + ')">Previous</button>'
-      : '<span></span>';
-    var nextBtn = isLast
-      ? '<button class="btn-nav btn-submit" onclick="finish()">Submit all responses</button>'
-      : '<button class="btn-nav btn-next" onclick="goTo(' + (sp.id+1) + ')">Next species</button>';
-
-    return practiceBanner +
-      '<div class="sp-header">' +
-        '<div>' +
-          '<p class="sp-index">' + (isPractice ? 'PRACTICE SPECIES' : 'Species ' + String(sp.id).padStart(2,'0') + ' / 21') + '</p>' +
-          '<h2 class="sp-binomial">' + (isPractice ? '<em>Salmo trutta</em> <span style="font-style:normal;font-size:16px;font-weight:400;color:#b45309;letter-spacing:.05em">(PRACTICE)</span>' : '<em>' + sp.binomial + '</em>') + '</h2>' +
-          '<p class="sp-common">' + sp.common + '</p>' +
-        '</div>' +
-        '<div class="sp-tags"><span class="tag">' + sp.family + '</span><span class="tag">' + sp.system + '</span><span class="tag">' + sp.range + '</span></div>' +
+  return practiceBanner +
+    '<div class="sp-header">' +
+      '<div>' +
+        '<p class="sp-index">' + (isPractice ? 'PRACTICE SPECIES' : 'Species ' + String(sp.id).padStart(2,'0') + ' / 21') + '</p>' +
+        '<h2 class="sp-binomial">' + (isPractice ? '<em>Salmo trutta</em> <span style="font-style:normal;font-size:16px;font-weight:400;color:#b45309;letter-spacing:.05em">(PRACTICE)</span>' : '<em>' + sp.binomial + '</em>') + '</h2>' +
+        '<p class="sp-common">' + sp.common + '</p>' +
       '</div>' +
+      '<div class="sp-tags"><span class="tag">' + sp.family + '</span><span class="tag">' + sp.system + '</span><span class="tag">' + sp.range + '</span></div>' +
+    '</div>' +
 
-      getSpInfoHTML(sp) +
+    getSpInfoHTML(sp) +
 
-      '<div class="panel">' +
-        '<div class="panel-head">' +
-          '<span class="panel-title">Chip Allocation - 20 chips total</span>' +
-          '<span class="chip-counter"><span class="cc-used" id="used-' + sp.id + '">0</span><span class="cc-sep"> / </span><span class="cc-tot">20</span><span class="cc-label">chips placed</span></span>' +
-        '</div>' +
-        '<div class="panel-body">' + catRows + '</div>' +
-        '<div class="panel-foot"><button class="btn-reset" onclick="resetChips(' + sp.id + ')">Reset chips</button></div>' +
+    '<div class="panel">' +
+      '<div class="panel-head">' +
+        '<span class="panel-title">Chip Allocation - 20 chips total</span>' +
+        '<span class="chip-counter"><span class="cc-used" id="used-' + sp.id + '">0</span><span class="cc-sep"> / </span><span class="cc-tot">20</span><span class="cc-label">chips placed</span></span>' +
       '</div>' +
+      '<div class="panel-body">' + catRows + '</div>' +
+      '<div class="panel-foot"><button class="btn-reset" onclick="resetChips(' + sp.id + ')">Reset chips</button></div>' +
+    '</div>' +
 
-      '<div class="dist-panel">' +
-        '<p class="dist-panel-title">Implied Probability Distribution</p>' +
-        '<div class="dist-chart">' + distCols + '</div>' +
-        '<div class="dist-prob-row">' + distProbs + '</div>' +
+    '<div class="dist-panel">' +
+      '<p class="dist-panel-title">Implied Probability Distribution</p>' +
+      '<div class="dist-chart">' + distCols + '</div>' +
+      '<div class="dist-prob-row">' + distProbs + '</div>' +
+    '</div>' +
+
+    '<div class="panel conf-panel">' +
+      '<div class="panel-head">' +
+        '<span class="panel-title">Overall Confidence in chip allocation for this species</span>' +
+        '<span class="conf-val" id="conf-val-' + sp.id + '">50%</span>' +
       '</div>' +
-
-      '<div class="panel conf-panel">' +
-        '<div class="panel-head">' +
-          '<span class="panel-title">Overall Confidence in chip allocation for this species</span>' +
-          '<span class="conf-val" id="conf-val-' + sp.id + '">50%</span>' +
+      '<div class="panel-body">' +
+        '<div class="conf-slider-wrap">' +
+          '<input type="range" min="0" max="100" value="50" id="conf-' + sp.id + '" oninput="onConfChange(' + sp.id + ',this.value)">' +
         '</div>' +
-        '<div class="panel-body">' +
-          '<div class="conf-slider-wrap">' +
-            '<input type="range" min="0" max="100" value="50" id="conf-' + sp.id + '" oninput="onConfChange(' + sp.id + ',this.value)">' +
+        '<div class="conf-labels"><span>Very low confidence</span><span>Moderate</span><span>Very high confidence</span></div>' +
+      '</div>' +
+    '</div>' +
+
+    '<div class="panel qual-panel">' +
+      '<div class="panel-head"><span class="panel-title">Qualitative Assessment</span></div>' +
+      '<div class="panel-body">' +
+        '<div class="qual-grid">' +
+          '<div><label>Species Familiarity</label>' +
+            '<select id="fam-' + sp.id + '" onchange="state[' + sp.id + '].familiarity=this.value">' +
+              '<option value="">Select</option>' +
+              '<option value="1">1 - Unfamiliar (based on analogues)</option>' +
+              '<option value="2">2 - Slight (general literature)</option>' +
+              '<option value="3">3 - Moderate (some direct knowledge)</option>' +
+              '<option value="4">4 - Good (field / research experience)</option>' +
+              '<option value="5">5 - Extensive (specialist knowledge)</option>' +
+            '</select></div>' +
+          '<div><label>Population Trend (expert judgement)</label>' +
+            '<select id="trend-' + sp.id + '" onchange="state[' + sp.id + '].trend=this.value">' +
+              '<option value="">Select</option>' +
+              '<option>1 - Increasing</option>' +
+              '<option>2 - Stable</option>' +
+              '<option>3 - Decreasing</option>' +
+              '<option>4 - Unknown</option>' +
+            '</select></div>' +
+          '<div class="qual-full"><label>Primary IUCN Criterion</label>' +
+            buildCritWidget(sp.id) +
           '</div>' +
-          '<div class="conf-labels"><span>Very low confidence</span><span>Moderate</span><span>Very high confidence</span></div>' +
-        '</div>' +
-      '</div>' +
-
-      '<div class="panel qual-panel">' +
-        '<div class="panel-head"><span class="panel-title">Qualitative Assessment</span></div>' +
-        '<div class="panel-body">' +
-          '<div class="qual-grid">' +
-            '<div><label>Species Familiarity</label>' +
-              '<select id="fam-' + sp.id + '" onchange="state[' + sp.id + '].familiarity=this.value">' +
-                '<option value="">Select</option>' +
-                '<option value="1">1 - Unfamiliar (based on analogues)</option>' +
-                '<option value="2">2 - Slight (general literature)</option>' +
-                '<option value="3">3 - Moderate (some direct knowledge)</option>' +
-                '<option value="4">4 - Good (field / research experience)</option>' +
-                '<option value="5">5 - Extensive (specialist knowledge)</option>' +
-              '</select></div>' +
-            '<div><label>Population Trend (expert judgement)</label>' +
-              '<select id="trend-' + sp.id + '" onchange="state[' + sp.id + '].trend=this.value">' +
-                '<option value="">Select</option>' +
-                '<option>1 - Increasing</option>' +
-                '<option>2 - Stable</option>' +
-                '<option>3 - Decreasing</option>' +
-                '<option>4 - Unknown</option>' +
-              '</select></div>' +
-            '<div class="qual-full"><label>Primary IUCN Criterion</label>' +
-              buildCritWidget(sp.id) +
-            '</div>' +
-            '<div><label>Dominant Threat (most limiting factor)</label>' +
-              '<select id="threat-' + sp.id + '" onchange="state[' + sp.id + '].threat=this.value">' +
-                '<option value="">Select</option>' +
-                '<option>1 - Habitat loss / degradation</option>' +
-                '<option>2 - River fragmentation / barriers</option>' +
-                '<option>3 - Water quality / pollution</option>' +
-                '<option>4 - Overfishing / exploitation</option>' +
-                '<option>5 - Invasive species</option>' +
-                '<option>6 - Climate change / hydrological alteration</option>' +
-                '<option>7 - Hydromorphological modification</option>' +
-                '<option>8 - Gravel extraction</option>' +
-                '<option>9 - Multiple threats (no single dominant)</option>' +
-                '<option>10 - Unknown / insufficient data</option>' +
-              '</select></div>' +
-            '<div class="qual-full"><label>Notes and Caveats</label>' +
-              '<textarea id="notes-' + sp.id + '" rows="3" placeholder="e.g. Population data from 2022 survey; evidence of recent recruitment decline in upper Danube..." oninput="state[' + sp.id + '].notes=this.value"></textarea>' +
-            '</div>' +
+          '<div><label>Dominant Threat (most limiting factor)</label>' +
+            '<select id="threat-' + sp.id + '" onchange="state[' + sp.id + '].threat=this.value">' +
+              '<option value="">Select</option>' +
+              '<option>1 - Habitat loss / degradation</option>' +
+              '<option>2 - River fragmentation / barriers</option>' +
+              '<option>3 - Water quality / pollution</option>' +
+              '<option>4 - Overfishing / exploitation</option>' +
+              '<option>5 - Invasive species</option>' +
+              '<option>6 - Climate change / hydrological alteration</option>' +
+              '<option>7 - Hydromorphological modification</option>' +
+              '<option>8 - Gravel extraction</option>' +
+              '<option>9 - Multiple threats (no single dominant)</option>' +
+              '<option>10 - Unknown / insufficient data</option>' +
+            '</select></div>' +
+          '<div class="qual-full"><label>Notes and Caveats</label>' +
+            '<textarea id="notes-' + sp.id + '" rows="3" placeholder="e.g. Population data from 2022 survey; evidence of recent recruitment decline in upper Danube..." oninput="state[' + sp.id + '].notes=this.value"></textarea>' +
           '</div>' +
         '</div>' +
       '</div>' +
+    '</div>' +
 
-      '<div class="nav-row">' + prevBtn + '<span class="nav-status" id="nav-status-' + sp.id + '"></span>' + nextBtn + '</div>';
+    buildTrendWidget(sp) +
+
+    '<div class="nav-row">' + prevBtn + '<span class="nav-status" id="nav-status-' + sp.id + '"></span>' + nextBtn + '</div>';
+}
+
+function onConfChange(spId, val) {
+  state[spId].confidence = +val;
+  var el = document.getElementById('conf-val-' + spId);
+  if (el) el.textContent = val + '%';
+}
+
+// ── Trend widget builder ─────────────────────────────────────
+function buildTrendWidget(sp) {
+  var id = sp.id;
+  var binomial = sp.isPractice ? 'Salmo trutta' : sp.binomial;
+  return '<div class="trend-panel">' +
+    '<div class="panel-head">' +
+      '<span class="panel-title">Future Population Trend (next 20 years)</span>' +
+    '</div>' +
+    '<div class="trend-panel-body">' +
+      '<p class="trend-intro">Thinking about <em>' + binomial + '</em> in <strong>your country</strong> over the next <strong>20 years</strong>:</p>' +
+
+      '<span class="trend-step-label">1. Best guess &mdash; % change in population abundance</span>' +
+      '<div class="trend-median-row">' +
+        '<button class="trend-arrow-btn left" onclick="trendAdjustMed(' + id + ',-1)">&#9660;</button>' +
+        '<div class="trend-median-display">' +
+          '<div class="trend-med-val" id="tmed-val-' + id + '">0%</div>' +
+          '<div class="trend-med-lbl" id="tmed-lbl-' + id + '">stable</div>' +
+        '</div>' +
+        '<button class="trend-arrow-btn right" onclick="trendAdjustMed(' + id + ',1)">&#9650;</button>' +
+      '</div>' +
+
+      '<span class="trend-step-label">2. Plausible range &mdash; only 5% chance true value falls outside these bounds</span>' +
+      '<p style="font-size:11px;color:var(--text-mute);margin:0 0 16px 0;font-family:\'Times New Roman\',Times,serif;font-style:normal;">Red = worst plausible (P5) &nbsp;&middot;&nbsp; Green = best plausible (P95)</p>' +
+
+      '<div class="trend-slider-row">' +
+        '<span class="trend-slider-tag" style="color:#c0392b;">P5</span>' +
+        '<input type="range" id="tslider-p5-' + id + '" min="-100" max="200" value="-60" step="5" style="accent-color:#c0392b;" oninput="trendOnSlider(' + id + ',\'p5\')">' +
+        '<div class="trend-slider-val" id="tval-p5-' + id + '" style="color:#c0392b;">-60%</div>' +
+      '</div>' +
+
+      '<div class="trend-slider-row">' +
+        '<span class="trend-slider-tag" style="color:#27ae60;">P95</span>' +
+        '<input type="range" id="tslider-p95-' + id + '" min="-100" max="200" value="20" step="5" style="accent-color:#27ae60;" oninput="trendOnSlider(' + id + ',\'p95\')">' +
+        '<div class="trend-slider-val" id="tval-p95-' + id + '" style="color:#27ae60;">+20%</div>' +
+      '</div>' +
+
+      '<div style="position:relative;margin:8px 0 0 0;">' +
+        '<canvas id="tcanvas-' + id + '" height="40" style="width:100%;display:block;border-radius:4px;"></canvas>' +
+        '<div class="trend-tick-row"><span>-100%</span><span>-50%</span><span>0%</span><span>+50%</span><span>+100%</span><span>+200%</span></div>' +
+      '</div>' +
+    '</div>' +
+  '</div>';
+}
+
+// ── Trend widget state & logic ───────────────────────────────
+var trendState = {};
+ALL_SPECIES.forEach(function(sp) {
+  trendState[sp.id] = { p5: -60, med: 0, p95: 20 };
+});
+
+function trendFmt(v) { return (v > 0 ? '+' : '') + v + '%'; }
+
+function trendMedLabel(v) {
+  if (v <= -50) return 'strong decline';
+  if (v < -20)  return 'declining';
+  if (v < -5)   return 'slight decline';
+  if (v < 5)    return 'stable';
+  if (v < 20)   return 'slight increase';
+  return 'increasing';
+}
+
+function trendAdjustMed(spId, dir) {
+  var s = trendState[spId];
+  s.med = Math.max(-100, Math.min(200, s.med + dir * 5));
+  if (s.med < s.p5)  { s.p5  = s.med; var el = document.getElementById('tslider-p5-'  + spId); if (el) el.value = s.p5; }
+  if (s.med > s.p95) { s.p95 = s.med; var el2 = document.getElementById('tslider-p95-' + spId); if (el2) el2.value = s.p95; }
+  trendRender(spId);
+  state[spId].trendP5  = s.p5;
+  state[spId].trendMed = s.med;
+  state[spId].trendP95 = s.p95;
+}
+
+function trendOnSlider(spId, key) {
+  var el = document.getElementById('tslider-' + key + '-' + spId);
+  if (!el) return;
+  var val = parseInt(el.value);
+  var s = trendState[spId];
+  s[key] = val;
+  if (key === 'p5'  && s.p5  > s.med) s.med = s.p5;
+  if (key === 'p95' && s.p95 < s.med) s.med = s.p95;
+  trendRender(spId);
+  state[spId].trendP5  = s.p5;
+  state[spId].trendMed = s.med;
+  state[spId].trendP95 = s.p95;
+}
+
+function trendDrawCanvas(spId) {
+  var canvas = document.getElementById('tcanvas-' + spId);
+  if (!canvas) return;
+  var rect = canvas.getBoundingClientRect();
+  var W = rect.width || canvas.offsetWidth || 300;
+  if (W < 10) return; // still hidden, skip
+  var dpr = window.devicePixelRatio || 1;
+  canvas.width  = Math.round(W * dpr);
+  canvas.height = Math.round(40 * dpr);
+  canvas.style.width  = W + 'px';
+  canvas.style.height = '40px';
+  var ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, W, 40);
+  var s = trendState[spId];
+  var y = 20;
+  function toX(v) { return (v - (-100)) / (200 - (-100)) * W; }
+  var xP5 = toX(s.p5), xMed = toX(s.med), xP95 = toX(s.p95), x0 = toX(0);
+
+  // Safe rounded rect — ctx.roundRect not available on iOS < 15.4
+  ctx.beginPath();
+  ctx.moveTo(3, y-3); ctx.lineTo(W-3, y-3);
+  ctx.arcTo(W, y-3, W, y, 3); ctx.lineTo(W, y+3);
+  ctx.arcTo(W, y+3, W-3, y+3, 3); ctx.lineTo(3, y+3);
+  ctx.arcTo(0, y+3, 0, y, 3); ctx.lineTo(0, y-3);
+  ctx.arcTo(0, y-3, 3, y-3, 3); ctx.closePath();
+  ctx.fillStyle = '#ccc'; ctx.fill();
+
+  var span = Math.max(xP95 - xP5, 1);
+  var g = ctx.createLinearGradient(xP5, 0, xP95, 0);
+  g.addColorStop(0, 'rgba(192,57,43,0.35)');
+  g.addColorStop((xMed - xP5) / span, 'rgba(44,62,80,0.5)');
+  g.addColorStop(1, 'rgba(39,174,96,0.35)');
+  ctx.fillStyle = g; ctx.fillRect(xP5, y-3, xP95-xP5, 6);
+
+  ctx.strokeStyle = '#aaa'; ctx.lineWidth = 1.5; ctx.setLineDash([3,3]);
+  ctx.beginPath(); ctx.moveTo(x0, 5); ctx.lineTo(x0, 35); ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.beginPath(); ctx.arc(xP5, y, 7, 0, 2*Math.PI);
+  ctx.fillStyle = '#c0392b'; ctx.fill();
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+
+  ctx.beginPath(); ctx.arc(xP95, y, 7, 0, 2*Math.PI);
+  ctx.fillStyle = '#27ae60'; ctx.fill();
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xMed, y-9); ctx.lineTo(xMed+7, y);
+  ctx.lineTo(xMed, y+9); ctx.lineTo(xMed-7, y);
+  ctx.closePath();
+  ctx.fillStyle = '#2c3e50'; ctx.fill();
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+}
+
+function trendRender(spId) {
+  var s = trendState[spId];
+  var vmed = document.getElementById('tmed-val-' + spId);
+  var lmed = document.getElementById('tmed-lbl-' + spId);
+  var vp5  = document.getElementById('tval-p5-'  + spId);
+  var vp95 = document.getElementById('tval-p95-' + spId);
+  if (vmed) vmed.textContent = trendFmt(s.med);
+  if (lmed) lmed.textContent = trendMedLabel(s.med);
+  if (vp5)  vp5.textContent  = trendFmt(s.p5);
+  if (vp95) vp95.textContent = trendFmt(s.p95);
+  trendDrawCanvas(spId);
+}
+
+function trendRenderAll() {
+  ALL_SPECIES.forEach(function(sp) { trendRender(sp.id); });
+}
+
+// Redraw canvases on resize and orientation change (iPhone rotation)
+window.addEventListener('resize', function() {
+  setTimeout(function() { trendRender(currentSp); }, 50);
+});
+window.addEventListener('orientationchange', function() {
+  setTimeout(function() { trendRender(currentSp); }, 200);
+});
+
+// ── Chip wire events ─────────────────────────────────────────
+function wireChipEvents(spId) {
+  var btns = document.querySelectorAll('[data-sp="' + spId + '"]');
+  for (var i = 0; i < btns.length; i++) {
+    (function(btn) {
+      btn.addEventListener("click", function() {
+        adjust(spId, btn.dataset.cat, parseInt(btn.dataset.dir, 10));
+      });
+    })(btns[i]);
   }
-
-  // Build cards using insertAdjacentHTML for better iOS compatibility
-  function buildCards() {
-    var wrap = document.getElementById("elix-wrap");
-    if (!wrap) { console.error("elix-wrap missing"); return; }
-    wrap.innerHTML = ''; // Clear any placeholder
-    ALL_SPECIES.forEach(function(sp) {
-      var cardDiv = document.createElement('div');
-      cardDiv.className = 'sp-card';
-      cardDiv.id = 'card-' + sp.id;
-      cardDiv.insertAdjacentHTML('beforeend', cardHTML(sp));
-      wrap.appendChild(cardDiv);
-      wireChipEvents(sp.id);
-      wireCritWidget(sp.id);
-    });
-    wrap.classList.add('js-ready');
+  for (var j = 0; j < CATS.length; j++) {
+    (function(cat) {
+      var t = document.getElementById("track-" + spId + "-" + cat);
+      if (t) t.addEventListener("click", function(){ adjust(spId, cat, 1); });
+    })(CATS[j].id);
   }
+}
 
-  function wireChipEvents(spId) {
-    var btns = document.querySelectorAll('[data-sp="' + spId + '"]');
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener('click', (function(sp, cat, dir) {
-        return function() { adjust(sp, cat, dir); };
-      })(spId, btns[i].dataset.cat, parseInt(btns[i].dataset.dir, 10)));
-    }
-    CATS.forEach(function(c) {
-      var t = document.getElementById("track-" + spId + "-" + c.id);
-      if (t) {
-        t.addEventListener('click', (function(sp, cat) {
-          return function() { adjust(sp, cat, 1); };
-        })(spId, c.id));
-      }
-    });
-  }
+// ── Criterion widget events ──────────────────────────────────
+function wireCritWidget(spId) {
+  var widget = document.getElementById("critw-" + spId);
+  if (!widget) return;
 
-  function wireCritWidget(spId) {
-    var widget = document.getElementById("critw-" + spId);
-    if (!widget) return;
-    widget.querySelectorAll(".crit-row").forEach(function(row) {
+  var rows = widget.querySelectorAll(".crit-row");
+  for (var i = 0; i < rows.length; i++) {
+    (function(row) {
       row.addEventListener("click", function(e) {
         if (e.target.closest(".cw-sub")) return;
         row.classList.toggle("cw-sel");
         cwUpdateFooter(spId);
         cwSaveState(spId);
       });
-    });
-    widget.querySelectorAll(".cw-sub").forEach(function(sub) {
+    })(rows[i]);
+  }
+
+  var subs = widget.querySelectorAll(".cw-sub");
+  for (var j = 0; j < subs.length; j++) {
+    (function(sub) {
       sub.addEventListener("click", function(e) {
         e.stopPropagation();
         sub.classList.toggle("cw-sub-on");
         cwUpdateFooter(spId);
         cwSaveState(spId);
       });
-    });
+    })(subs[j]);
   }
+}
 
-  function cwUpdateFooter(spId) { /* same as before */ }
-  function cwSaveState(spId) { /* same as before */ }
-  function adjust(spId, cat, dir) { /* same */ }
-  function resetChips(spId) { /* same */ }
-  function renderState(spId) { /* same */ }
-  function goTo(id) { /* same with offset scroll */ }
-  function updateTab(spId) { /* same */ }
-  function updateProgress() { /* same */ }
-  function finish() { /* same */ }
-  function buildSummary() { /* same */ }
-  function collectData() { /* same */ }
-  function buildCSV(data) { /* same */ }
-  function dlCSV(str, filename) { /* same */ }
-  function exportJSON() { /* same */ }
-  async function submitAndDownload() { /* same */ }
-  function showToast(msg, type) { /* same */ }
-
-  // Expose necessary functions globally
-  window.goTo = goTo;
-  window.skipPractice = function() { goTo(1); showToast("Jumped to first Danube species.", ""); };
-  window.resetChips = resetChips;
-  window.onConfChange = function(spId, val) {
-    state[spId].confidence = +val;
-    var el = document.getElementById('conf-val-' + spId);
-    if (el) el.textContent = val + '%';
-  };
-  window.finish = finish;
-  window.submitAndDownload = submitAndDownload;
-  window.exportJSON = exportJSON;
-  window.state = state; // for debugging
-
-  // Initialize when DOM is ready, but also add a small delay for iOS layout stability
-  function safeInit() {
-    try {
-      buildTabs();
-      buildCards();
-      goTo(0);
-    } catch (e) {
-      console.error("Init error:", e);
-      // Fallback: try again after a short delay
-      setTimeout(function() {
-        try {
-          buildTabs();
-          buildCards();
-          goTo(0);
-        } catch (e2) {
-          console.error("Retry failed:", e2);
-          document.getElementById("elix-wrap").innerHTML = '<p style="padding:20px;color:red;">Error loading species cards. Please refresh or try a different browser.</p>';
-        }
-      }, 300);
+function cwUpdateFooter(spId) {
+  var footer = document.getElementById("critw-foot-" + spId);
+  var widget = document.getElementById("critw-" + spId);
+  if (!footer || !widget) return;
+  var selected = widget.querySelectorAll(".crit-row.cw-sel");
+  footer.innerHTML = '<span class="cw-footer-lbl">Selected:</span>';
+  if (selected.length === 0) {
+    footer.innerHTML += '<span class="cw-empty">none selected</span>';
+    return;
+  }
+  for (var i = 0; i < selected.length; i++) {
+    var row = selected[i];
+    var c = row.dataset.c;
+    if (c === "none") {
+      footer.innerHTML += '<span class="cw-pill cw-pill-none">No criterion</span>';
+      continue;
+    }
+    var subsOn = row.querySelectorAll(".cw-sub.cw-sub-on");
+    var subs = [];
+    for (var j = 0; j < subsOn.length; j++) {
+      subs.push(subsOn[j].querySelector(".cw-sublabel").textContent.split("-")[0].trim());
+    }
+    if (subs.length > 0) {
+      for (var k = 0; k < subs.length; k++) {
+        footer.innerHTML += '<span class="cw-pill cw-pill-' + c + '">' + subs[k] + '</span>';
+      }
+    } else {
+      footer.innerHTML += '<span class="cw-pill cw-pill-' + c + '">' + c + '</span>';
     }
   }
+}
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", safeInit);
-  } else {
-    // Already loaded, but wait a tick for layout
-    setTimeout(safeInit, 50);
+function cwSaveState(spId) {
+  var widget = document.getElementById("critw-" + spId);
+  if (!widget) return;
+  var parts = [];
+  var rows = widget.querySelectorAll(".crit-row.cw-sel");
+  for (var i = 0; i < rows.length; i++) {
+    var row = rows[i];
+    var c = row.dataset.c;
+    var subsOn = row.querySelectorAll(".cw-sub.cw-sub-on");
+    var subs = [];
+    for (var j = 0; j < subsOn.length; j++) {
+      subs.push(subsOn[j].querySelector(".cw-sublabel").textContent.trim());
+    }
+    parts.push(subs.length > 0 ? c + "(" + subs.join(", ") + ")" : c);
   }
-})();
+  state[spId].criterion = parts.join("; ");
+}
+
+// ── Chip logic ───────────────────────────────────────────────
+function adjust(spId, cat, dir) {
+  var s = state[spId];
+  var used = objValues(s.chips).reduce(function(a,b){return a+b;},0);
+  if (dir === 1  && used >= TOTAL)    return;
+  if (dir === -1 && s.chips[cat] <= 0) return;
+  s.chips[cat] = Math.max(0, s.chips[cat] + dir);
+  renderState(spId);
+}
+
+function resetChips(spId) {
+  CATS.forEach(function(c){ state[spId].chips[c.id] = 0; });
+  renderState(spId);
+}
+
+function skipPractice() {
+  goTo(1);
+  showToast("Jumped to first Danube species. You can return to practice anytime.", "");
+}
+
+function renderState(spId) {
+  var s   = state[spId];
+  var used = objValues(s.chips).reduce(function(a,b){return a+b;},0);
+  var rem  = TOTAL - used;
+  var sp   = ALL_SPECIES.filter(function(x){return x.id===spId;})[0];
+
+  var usedEl = document.getElementById("used-" + spId);
+  if (usedEl) usedEl.textContent = used;
+
+  CATS.forEach(function(c) {
+    var n = s.chips[c.id], pct = (n / TOTAL) * 100;
+    var fillEl  = document.getElementById("fill-"  + spId + "-" + c.id);
+    var countEl = document.getElementById("count-" + spId + "-" + c.id);
+    var probEl  = document.getElementById("prob-"  + spId + "-" + c.id);
+    var dotsEl  = document.getElementById("dots-"  + spId + "-" + c.id);
+    var barEl   = document.getElementById("dbar-"  + spId + "-" + c.id);
+    var dprobEl = document.getElementById("dprob-" + spId + "-" + c.id);
+    if (fillEl)  fillEl.style.width = pct + "%";
+    if (countEl) countEl.textContent = n;
+    if (probEl)  probEl.textContent  = pct.toFixed(0) + "%";
+    if (dotsEl) {
+      dotsEl.innerHTML = "";
+      for (var i = 0; i < n; i++) {
+        var d = document.createElement("div");
+        d.className = "chip-dot";
+        dotsEl.appendChild(d);
+      }
+    }
+    if (barEl)   barEl.style.height = ((pct/100)*82).toFixed(1) + "px";
+    if (dprobEl) {
+      dprobEl.textContent = n > 0 ? pct.toFixed(0) + "%" : "-";
+      dprobEl.classList.toggle("active", n > 0);
+    }
+  });
+
+  var st = document.getElementById("nav-status-" + spId);
+  if (st) {
+    st.textContent = rem > 0 ? rem + " chip" + (rem !== 1 ? "s" : "") + " remaining" : "All chips placed";
+    st.style.color = rem > 0 ? "var(--text-mute)" : "var(--green)";
+  }
+
+  s.completed = (!sp.isPractice) && (used === TOTAL);
+  updateTab(spId);
+  updateProgress();
+}
+
+function goTo(id) {
+  var cards = document.querySelectorAll(".sp-card");
+  for (var i = 0; i < cards.length; i++) cards[i].classList.remove("active");
+  var tabs = document.querySelectorAll(".sp-tab");
+  for (var j = 0; j < tabs.length; j++) tabs[j].classList.remove("active");
+  var card = document.getElementById("card-" + id);
+  if (!card) return;
+  card.classList.add("active");
+  var tab = document.getElementById("tab-" + id);
+  if (tab) tab.classList.add("active");
+  currentSp = id;
+  // Redraw trend canvas now that card is visible — use rAF + timeout for iOS Safari
+  var _id = id;
+  requestAnimationFrame(function() {
+    setTimeout(function() { trendRender(_id); }, 60);
+  });
+  var navEl = document.getElementById("species-nav");
+  if (navEl) {
+    var top = navEl.getBoundingClientRect().top + window.pageYOffset - 64;
+    try { window.scrollTo({top:top, behavior:"smooth"}); } catch(e) { window.scrollTo(0, top); }
+  }
+}
+
+function updateTab(spId) {
+  var tab = document.getElementById("tab-" + spId);
+  var sp  = ALL_SPECIES.filter(function(x){return x.id===spId;})[0];
+  if (tab && !sp.isPractice) tab.classList.toggle("done", state[spId].completed);
+}
+
+function updateProgress() {
+  var done = REAL_SPECIES.filter(function(sp){return state[sp.id].completed;}).length;
+  document.getElementById("progress-label").textContent = done + " / 21 species";
+  document.getElementById("progress-fill").style.width  = ((done/21)*100).toFixed(1) + "%";
+}
+
+function finish() {
+  var done = REAL_SPECIES.filter(function(sp){return state[sp.id].completed;}).length;
+  if (done < 21) {
+    var miss = REAL_SPECIES.filter(function(sp){return !state[sp.id].completed;}).map(function(sp){return sp.id;}).join(", ");
+    if (!confirm((21-done) + " species have incomplete chip allocations (species: " + miss + ").\n\nProceed anyway?")) return;
+  }
+  document.getElementById("elix-wrap").style.display   = "none";
+  document.getElementById("species-nav").style.display = "none";
+  buildSummary();
+  document.getElementById("summary-panel").style.display = "block";
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function buildSummary() {
+  var tbody = document.getElementById("summ-tbody");
+  tbody.innerHTML = "";
+  REAL_SPECIES.forEach(function(sp) {
+    var s = state[sp.id], chips = s.chips;
+    var total = objValues(chips).reduce(function(a,b){return a+b;},0) || 1;
+    var modal = CATS.reduce(function(best,c){return chips[c.id]>chips[best.id]?c:best;}, CATS[0]);
+    var miniBars = CATS.map(function(c){
+      return '<div class="mini-bar mb-' + c.id + '" style="height:' + Math.round((chips[c.id]/total)*22) + 'px;flex:1"></div>';
+    }).join('');
+    var tr = document.createElement("tr");
+    tr.innerHTML =
+      '<td style="color:var(--text-mute);font-family:\'Times New Roman\',Times,serif;font-size:10px">' + String(sp.id).padStart(2,"0") + '</td>' +
+      '<td class="st-bin">' + sp.binomial + '</td>' +
+      '<td><span class="cat-badge cb-' + modal.id + '" style="font-size:9px;padding:3px 10px;display:inline-block">' + modal.label + '</span></td>' +
+      '<td class="st-conf">' + s.confidence + '%</td>' +
+      '<td><div class="mini-dist">' + miniBars + '</div></td>';
+    tbody.appendChild(tr);
+  });
+}
+
+function collectData() {
+  var expert = {
+    name:       document.getElementById("expert-name").value.trim(),
+    institution:document.getElementById("expert-inst").value.trim(),
+    email:      document.getElementById("expert-email").value.trim(),
+    domain:     document.getElementById("expert-domain").value,
+    years:      document.getElementById("expert-yrs").value,
+    iucnExp:    document.getElementById("expert-iucn").value,
+    geoFocus:   document.getElementById("expert-geo").value.trim(),
+    timestamp:  new Date().toISOString()
+  };
+  var elicitation = REAL_SPECIES.map(function(sp) {
+    var s = state[sp.id];
+    var total = objValues(s.chips).reduce(function(a,b){return a+b;},0) || 1;
+    var probs = {};
+    CATS.forEach(function(c){ probs[c.id] = +(s.chips[c.id]/total*100).toFixed(1); });
+    var famEl   = document.getElementById("fam-"   + sp.id);
+    var trendEl = document.getElementById("trend-" + sp.id);
+    var threatEl= document.getElementById("threat-"+ sp.id);
+    var notesEl = document.getElementById("notes-" + sp.id);
+    return {
+      speciesId:  sp.id,
+      binomial:   sp.binomial,
+      common:     sp.common,
+      chips:      {lc:s.chips.lc,nt:s.chips.nt,vu:s.chips.vu,en:s.chips.en,cr:s.chips.cr,ex:s.chips.ex},
+      probs:      probs,
+      confidence: s.confidence,
+      familiarity:famEl    ? famEl.value    : "",
+      trend:      trendEl  ? trendEl.value  : "",
+      criterion:  s.criterion || "",
+      threat:     threatEl ? threatEl.value : "",
+      notes:      notesEl  ? notesEl.value  : "",
+      trendP5:    s.trendP5  !== undefined ? s.trendP5  : "",
+      trendMed:   s.trendMed !== undefined ? s.trendMed : "",
+      trendP95:   s.trendP95 !== undefined ? s.trendP95 : "",
+      completed:  s.completed
+    };
+  });
+  return {expert:expert, elicitation:elicitation, protocol:"SHELF-Roulette-v1.0", totalChips:TOTAL};
+}
+
+function buildCSV(data) {
+  function esc(v) { return '"' + String(v == null ? "" : v).replace(/"/g,'""') + '"'; }
+  var cols = ["timestamp","expert_name","institution","email","domain","years_exp","iucn_exp","geo_focus",
+    "species_id","binomial","common",
+    "chips_lc","chips_nt","chips_vu","chips_en","chips_cr","chips_ex",
+    "prob_lc","prob_nt","prob_vu","prob_en","prob_cr","prob_ex",
+    "confidence","familiarity","trend","criterion","threat","notes",
+    "trend_p5","trend_median","trend_p95","completed"];
+  var rows = [cols.join(",")];
+  data.elicitation.forEach(function(sp) {
+    rows.push([
+      data.expert.timestamp,data.expert.name,data.expert.institution,data.expert.email,
+      data.expert.domain,data.expert.years,data.expert.iucnExp,data.expert.geoFocus,
+      sp.speciesId,sp.binomial,sp.common,
+      sp.chips.lc,sp.chips.nt,sp.chips.vu,sp.chips.en,sp.chips.cr,sp.chips.ex,
+      sp.probs.lc,sp.probs.nt,sp.probs.vu,sp.probs.en,sp.probs.cr,sp.probs.ex,
+      sp.confidence,sp.familiarity,sp.trend,sp.criterion,sp.threat,sp.notes,
+      sp.trendP5,sp.trendMed,sp.trendP95,sp.completed
+    ].map(esc).join(","));
+  });
+  return rows.join("\n");
+}
+
+function dlCSV(str, filename) {
+  var blob = new Blob([str], {type:"text/csv;charset=utf-8;"});
+  var url  = URL.createObjectURL(blob);
+  var a    = document.createElement("a");
+  a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url);
+}
+
+function exportJSON() {
+  var data = collectData();
+  var blob = new Blob([JSON.stringify(data,null,2)], {type:"application/json"});
+  var url  = URL.createObjectURL(blob);
+  var a    = document.createElement("a");
+  var name = (data.expert.name||"expert").replace(/\s+/g,"_");
+  a.href = url;
+  a.download = "SHELF_Danube_" + name + "_" + new Date().toISOString().slice(0,10) + ".json";
+  a.click(); URL.revokeObjectURL(url);
+}
+
+function submitAndDownload() {
+  var data   = collectData();
+  var csvStr = buildCSV(data);
+  var name   = (data.expert.name||"expert").replace(/\s+/g,"_");
+  dlCSV(csvStr, "SHELF_Danube_" + name + "_" + new Date().toISOString().slice(0,10) + ".csv");
+  showToast("Submitting to central database...","");
+  fetch(SHEET_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:csvStr})
+    .then(function() {
+      showToast("Responses submitted to Google Sheet successfully.","success");
+    })
+    .catch(function() {
+      showToast("Submission failed. Please email the downloaded CSV to your coordinator.","error");
+    });
+}
+
+var toastTimer;
+function showToast(msg, type) {
+  var el = document.getElementById("toast");
+  el.textContent = msg;
+  el.className = "toast show" + (type ? " " + type : "");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ el.classList.remove("show"); }, 5500);
+}
+
+// ── iOS-safe init ────────────────────────────────────────────
+function init() {
+  try {
+    buildTabs();
+    buildCards();
+    goTo(0);
+  } catch(e) {
+    console.error("Init error:", e);
+    // Show error visibly on screen for debugging on iPhone
+    var dbg = document.getElementById('elix-wrap');
+    if (dbg) dbg.innerHTML = '<div style="padding:20px;color:red;font-family:monospace;font-size:13px;">Init error: ' + (e.message || e) + '</div>';
+    // Retry after delay
+    setTimeout(function() {
+      try {
+        var w = document.getElementById('elix-wrap');
+        if (w) w.innerHTML = '';
+        buildTabs();
+        buildCards();
+        goTo(0);
+      } catch(e2) { console.error("Retry failed:", e2); }
+    }, 400);
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  if (window.requestAnimationFrame) {
+    requestAnimationFrame(function(){ requestAnimationFrame(init); });
+  } else {
+    init();
+  }
+}
 </script>
 
 </body>
