@@ -1472,38 +1472,49 @@ function showToast(msg, type) {
 }
 
 // ── iOS-safe init ────────────────────────────────────────────
+var _initDone = false;
 function init() {
+  if (_initDone) return;
+  _initDone = true;
+
+  // Verify DOM elements exist
+  var wrap = document.getElementById('elix-wrap');
+  var tabs = document.getElementById('species-tabs');
+  if (!wrap || !tabs) {
+    _initDone = false; // allow retry
+    setTimeout(init, 100);
+    return;
+  }
+
   try {
     buildTabs();
     buildCards();
     goTo(0);
   } catch(e) {
-    console.error("Init error:", e);
-    // Show error visibly on screen for debugging on iPhone
-    var dbg = document.getElementById('elix-wrap');
-    if (dbg) dbg.innerHTML = '<div style="padding:20px;color:red;font-family:monospace;font-size:13px;">Init error: ' + (e.message || e) + '</div>';
-    // Retry after delay
-    setTimeout(function() {
-      try {
-        var w = document.getElementById('elix-wrap');
-        if (w) w.innerHTML = '';
-        buildTabs();
-        buildCards();
-        goTo(0);
-      } catch(e2) { console.error("Retry failed:", e2); }
-    }, 400);
+    // Show error visibly — helps diagnose on any device
+    var msg = e && e.message ? e.message : String(e);
+    var line = e && e.lineNumber ? ' (line ' + e.lineNumber + ')' : '';
+    if (wrap) {
+      wrap.style.display = 'block';
+      wrap.innerHTML = '<div style="margin:20px;padding:16px;background:#fee2e2;border:2px solid #ef4444;border-radius:8px;font-family:monospace;font-size:13px;color:#991b1b;">'
+        + '<strong>Error loading app:</strong><br>' + msg + line
+        + '<br><br><em>Please screenshot this and send to the coordinator, then try refreshing.</em>'
+        + '</div>';
+    }
+    console.error('Init failed:', e);
   }
 }
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", init);
+// Run as soon as possible, with multiple fallbacks
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
 } else {
-  if (window.requestAnimationFrame) {
-    requestAnimationFrame(function(){ requestAnimationFrame(init); });
-  } else {
-    init();
-  }
+  init();
 }
+// Belt-and-braces: also try after full page load
+window.addEventListener('load', function() {
+  if (!_initDone) init();
+});
 </script>
 
 </body>
